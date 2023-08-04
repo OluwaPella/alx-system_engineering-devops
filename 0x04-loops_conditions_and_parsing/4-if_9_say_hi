@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#  This script is displaying "Best School" 10 times but at the 9th time its changes using while loop
+n=1
+k=10
+
+while [ $n -le $k ]; do
+echo "Best School"
+if [ $n -eq 9 ]; then
+echo "Hi"
+echo "Best School"
+break 
+fi
+n=$((n + 1))
+done
