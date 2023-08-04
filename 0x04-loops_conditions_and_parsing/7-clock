@@ -3,7 +3,7 @@
 
 n=0
 k=1
-echo "Hour:0"
+echo "Hour:$n"
 while [ $n -le 12 ]; do
     while [ $k -le 59 ]; do
         echo "$k"
