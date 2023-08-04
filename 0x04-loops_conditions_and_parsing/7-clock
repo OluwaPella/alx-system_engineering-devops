@@ -3,13 +3,12 @@
 
 n=0
 k=1
-echo "Hour:$n"
 while [ $n -le 12 ]; do
+	echo "Hour:$n"
+	k=1
     while [ $k -le 59 ]; do
          echo "$k"
         k=$((k + 1))
     done
     n=$((n + 1))
-    echo "Hours:$n"
-    k=1
-done | head -n 70
+done
