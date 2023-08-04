@@ -10,6 +10,6 @@ while [ $n -le 12 ]; do
         k=$((k + 1))
     done
     n=$((n + 1))
-    echo "Hours: 1"
+    echo "Hours: $n"
     k=1
 done | head -n 70
