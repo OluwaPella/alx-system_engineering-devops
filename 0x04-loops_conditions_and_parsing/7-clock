@@ -6,7 +6,7 @@ k=1
 echo "Hour:$n"
 while [ $n -le 12 ]; do
     while [ $k -le 59 ]; do
-         printf "$k\n"  $k
+         printf "$k\n" $n  $k
         k=$((k + 1))
     done
     n=$((n + 1))
