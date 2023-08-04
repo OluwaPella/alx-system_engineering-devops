@@ -4,10 +4,10 @@
 n=0
 k=1
 while [ $n -le 12 ]; do
-	echo "Hour:$n"
+	echo "Hour: $n"
 	k=1
     while [ $k -le 59 ]; do
-         echo "$k"
+         echo "Hour: $k"
         k=$((k + 1))
     done
     n=$((n + 1))
