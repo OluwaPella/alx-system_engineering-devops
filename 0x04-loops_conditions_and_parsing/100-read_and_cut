@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#This displays the content of the file /etc/passwd
+awk -F ':' '{ print "Username:", $1, "\nUser ID:", $3, "\nHome Directory:", $6 }' /etc/passwd
