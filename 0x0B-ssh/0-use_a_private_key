@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-# Set the variables for the server and private key
-
-server_address="18.233.63.117"
-private_key_path="~/.ssh/school"
-username="ubuntu"
+# Set the variables for the server and private
+ssh  ubuntu@18.233.63.117 -i ~/.ssh/school
