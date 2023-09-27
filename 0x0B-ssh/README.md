@@ -1,5 +1,6 @@
 <h1> 0x0B. SSH</h1>
 <h2>DevOps SSH Network SysAdmin Security</h2>
+<img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/244/zPVRKhPsUP5lK.gif">
 <h1>General</h1>
 <ul>
 <li>What is a server</li>
