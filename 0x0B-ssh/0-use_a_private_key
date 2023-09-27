@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 
 # Set the variables for the server and private
 ssh -i ~/.ssh/id_rsa ubuntu@18.233.63.117
 
+=======
+# this script connect to server using ssh key
+ssh  -i ~/.ssh/school ubuntu@35.175.132.73
+>>>>>>> 2bbcf96371017964689de501e40e650bc78efa0e
