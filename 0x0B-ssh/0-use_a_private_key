@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 # Set the variables for the server and private
-ssh  ubuntu@18.233.63.117 -i ~/.ssh/school
+ssh -i ~/.ssh/id_rsa ubuntu@18.233.63.117
+
