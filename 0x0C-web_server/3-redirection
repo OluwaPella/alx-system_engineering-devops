@@ -3,5 +3,5 @@ apt-get update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
-rewrite ^/redirect_me http://https://www.youtube.com/ permanent;
+sed -i rewrite ^/redirect_me http://https://www.youtube.com/ permanent;
 service nginx start
