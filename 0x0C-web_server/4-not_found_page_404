@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# this script return an HTTP 404 error code
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+# this redirect 
+echo "Hello World!" > sudo tee var/www/html/index.html
+sudo sed -i '/listen 80 dafault_server/  rewrite ^/redirect_me http://https://www.youtube.com/ permanent;
+'/etc/nginx/sites-available/default
+# this print for error 404 
+echo "Ceci n'est pas une page" > sudo tee var/www/html/404.html
+sudo sed -i '/listen 80 dafault_server/  rewrite ^/redirect_me http://https://www.youtube.com/ permanent;
+'/etc/nginx/sites-available/default
+# restart the server
+sudo service nginx start
