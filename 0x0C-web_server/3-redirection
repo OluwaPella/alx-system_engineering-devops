@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # this script redirect to another page
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^/redirect_me http://https://www.youtube.com/ permanent;"
-sudo sed -i 's/server_name_;'"$string_for_replacement"'/' /etc/nginx/sites-enabled/default
+string_for_replacement="server_name _;\n\trewrite ^/redirect_me http://https://www.youtube.com permanent;"
+sudo sed -i 's/server_name_;/'"$string_for_replacement"'/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
