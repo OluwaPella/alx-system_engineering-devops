@@ -2,7 +2,11 @@
 # this script print 404 error
 sudo apt-get update
 sudo apt-get install -y nginx
-
+# for 301 error
+echo "Hello World!" | sudo tee /var/www/html/index.html
+strings_p="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/ permanent;"
+sudo sed -i "s/server_name _;/$strings_p/" /etc/nginx/sites-enabled/default
+# for 404 error
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 string_p="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\tinternal;\n\t}"
 sudo sed -i "s/listen 80 default_server;/$string_p/" /etc/nginx/sites-enabled/default
