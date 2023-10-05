@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 # this explain how to use puppet
 
 package { 'nginx':
