@@ -1,10 +1,11 @@
+#!/usr/bin/bash
 # this explain how to use puppet
 
-packege{ 'nginx';
+package { 'nginx':
   ensure => installed,
 }
 
-file_line { 'install';
+file_line { 'install':
   ensure => 'present',
   path   => '/etc/nginx/sites_enabled/default',
   after  =>  'listen 80 default_server',
@@ -15,7 +16,7 @@ file { '/var/www/html/index.html':
   content => 'Hello Word!',
 }
 
-server { 'nginx';
+server { 'nginx':
   ensure  => running,
   require => package['nginx'],
 }
