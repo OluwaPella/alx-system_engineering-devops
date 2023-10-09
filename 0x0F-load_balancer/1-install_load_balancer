@@ -4,20 +4,14 @@ sudo apt  update
 sudo apt install -y haproxy
 
 # this edit the config file
-server_config=\
-
-"
-frontend web_frontend
+echo "frontend web_frontend
         bind *:80
         mode http
         default_backend web_backend
 backend web_backend
         balance roundrobin
         server [STUDENT_ID]-web-01 18.204.7.243:80 check
-        server [STUDENT_ID]-web-02 54.167.82.243:80 check
-
-"
-echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfig
+        server [STUDENT_ID]-web-0i2 54.167.82.243:80 check" | sudo tee -a /etc/haproxy/haproxy.cfig
 
 # enable haproxy to be started by init script
 
