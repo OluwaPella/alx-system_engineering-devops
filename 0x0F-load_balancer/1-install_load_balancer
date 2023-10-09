@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Update the package list and install HAProxy
-sudo apt update
+sudo apt -y update
 sudo apt install -y haproxy
 # this edit the config file
 server_config=\
@@ -12,9 +12,11 @@ frontend web_frontend
 
 backend web_backend
         balance roundrobin
-        server 305178-web-01.18.204.7.243:80 check
-        server 305178-web-02.54.167.82.243:80 check
+        server 305178-web-01 18.204.7.243:80 check
+        server 305178-web-02 54.167.82.243:80 check
+
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfig
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
 sudo service  haproxy restart
