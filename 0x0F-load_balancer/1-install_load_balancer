@@ -16,6 +16,5 @@ backend web_backend
         server 305178-web-02.54.167.82.243:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
-
 sudo systemctl enable haproxy
 sudo service  haproxy restart
