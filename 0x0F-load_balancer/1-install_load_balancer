@@ -11,7 +11,6 @@ frontend web_frontend
         bind *:80
         mode http
         default_backend web_backend
-
 backend web_backend
         balance roundrobin
         server 305178-web-01 18.204.7.243:80 check
