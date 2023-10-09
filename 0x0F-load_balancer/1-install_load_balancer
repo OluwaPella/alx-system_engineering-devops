@@ -4,11 +4,11 @@ sudo apt-get  update
 sudo apt-get  install -y haproxy
 
 # this edit the config file
-echo "frontend web_frontend
+echo "frontend pelu_frontend
         bind *:80
         mode http
-        default_backend web_backend
-backend web_backend
+        default_backend pelu_backend
+backend pelu_backend
         balance roundrobin
         server 305178-web-01 18.204.7.243:80 check
         server 305178-web-02 54.167.82.243:80 check" | sudo tee -a /etc/haproxy/haproxy.cfig
