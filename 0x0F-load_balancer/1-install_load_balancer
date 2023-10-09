@@ -2,8 +2,7 @@
 # Update the package list and install HAProxy
 sudo apt-get  update
 sudo apt-get  install -y haproxy
-
-# this edit the config file
+# this edit config file
 echo "frontend pelu-frontend
         bind *:80
         mode http
@@ -12,9 +11,6 @@ backend pelu-backend
         balance roundrobin
         server 305178-web-01 18.204.7.243:80 check
         server 305178-web-02 54.167.82.243:80 check" | sudo tee -a /etc/haproxy/haproxy.cfig
-
 # enable haproxy to be started by init script
-
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-
 sudo service haproxy restart
