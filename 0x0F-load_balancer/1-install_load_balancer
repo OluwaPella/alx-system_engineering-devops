@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Update the package list and install HAProxy
-sudo apt  update
-sudo apt install -y haproxy
+sudo apt-get  update
+sudo apt-get  install -y haproxy
 
 # this edit the config file
 echo "frontend web_frontend
