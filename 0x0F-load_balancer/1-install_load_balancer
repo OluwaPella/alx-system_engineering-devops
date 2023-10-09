@@ -2,8 +2,10 @@
 # Update the package list and install HAProxy
 sudo apt -y update
 sudo apt install -y haproxy
+
 # this edit the config file
 server_config=\
+
 "
 frontend web_frontend
         bind *:80
@@ -18,5 +20,4 @@ backend web_backend
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfig
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-
 sudo service  haproxy restart
