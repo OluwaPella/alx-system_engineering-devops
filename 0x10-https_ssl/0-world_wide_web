@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script  will display information about subdomain.
 
-display_info() {
+function display_info() {
 	local domain="$1"
 	local subdomain="$2"
 	
@@ -13,8 +13,8 @@ display_info() {
 	fi
 
 	for sub in "${subdomains[@]}"; do
-		record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $4}')
-		destination=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $5}')
+		record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $4 }')
+		destination=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ { getline; print $5 }')
 		echo "The subdomain $sub is a $record_type record and points to $destination"
 	done 
 }
