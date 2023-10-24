@@ -5,28 +5,20 @@
 #!/bin/bash
 
 display_info() {
-    local domain="$1"
-    local sub_domain="$2"
+	local domain="$1"
+	local subdomain="$2"
+	
+	if [ -z "subdomain"]; then
+	       	subdomains=["www" "lb-01" "web-01" "web-02"]
+	else 
+		subdomains=("$subdomain")
 
-    record_type=$(dig "$sub_domain.$domain" | awk '/ANSWER SECTION/ {getline; print $4}')
-    destination=$(dig +short "$sub_domain.$domain")
+	fi
 
-    echo "The subdomain [$sub_domain] is a [$record_type] record and points to [$destination]"
-}
-
-if [ -z "$1" ]; then
-    echo "Please provide a domain name."
-    exit 1
-fi
-
-domain="$1"
-
-if [ -z "$2" ]; then
-    for sub_domain in "www" "lb-01" "web-01" "web-02"; do
-        display_info "$domain" "$sub_domain"
-    done
-else
-    sub_domain="$2"
-    display_info "$domain" "$sub_domain"
-fi
-
+	for sub in "${subdomains[@]}"; do
+		record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $4}')
+		destination=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $5}')
+		echo "The subdomain $sub is a $record_type record and points to $destination"
+	done 
+	
+display_info "$1" "$2"
