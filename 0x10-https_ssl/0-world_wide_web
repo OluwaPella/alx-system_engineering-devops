@@ -20,5 +20,6 @@ display_info() {
 		destination=$(dig +short "$sub.$domain")
 		echo "The subdomain $sub is a $record_type record and points to $destination"
 	done 
+}
 	
 display_info "$1" "$2"
