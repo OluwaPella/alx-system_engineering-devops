@@ -17,7 +17,7 @@ display_info() {
 
 	for sub in "${subdomains[@]}"; do
 		record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $4}')
-		destination=$(dig "$sub.$domain" | awk '/ANSWER SECTION/ {getline; print $5}')
+		destination=$(dig +short "$sub.$domain")
 		echo "The subdomain $sub is a $record_type record and points to $destination"
 	done 
 	
