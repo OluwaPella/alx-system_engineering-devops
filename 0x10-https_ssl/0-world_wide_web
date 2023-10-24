@@ -19,9 +19,4 @@ display_info() {
     done
 }
 
-if [ -z "$1" ]; then
-    echo "Please provide a domain name."
-    exit 1
-fi
-
 display_info "$1" "$2"
