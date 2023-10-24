@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# This script  will display information about subdomain.
+# This script  will display information about subdomain
 
-function display_info() {
+function display_info {
 	local domain="$1"
 	local subdomain="$2"
 	
