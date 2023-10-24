@@ -1,33 +1,19 @@
 #!/usr/bin/env bash
-# this script  display information about subdomains and domains
-domain_info() {
-    local domain="$1"
-    local subdomain="$2"
-    local subdomains=()
+# This script  will display information about subdomaim
+#!/bin/bash
 
-    if [ $# -eq 1 ]; then
-        subdomains=("www" "lb-01" "web-01" "web-02")
-    else
-        subdomains=("$subdomain")
-    fi
+function display_info() {
+    local sub_domain="$1"
+    local record_type="$(dig +short $sub_domain)"
+    local destination="$(dig +short $sub_domain)"
 
-    for subdomain in "${subdomains[@]}"; do
-        record_type=$(dig +short -t ANY "$subdomain.$domain" | awk 'NR==1 {print $4}')
-        destination=$(dig +short "$subdomain.$domain" | awk 'NR==1')
-        echo "The subdomain $subdomain is a $record_type record and points to $destination"
-    done
+    echo "The subdomain [$sub_domain] is a [$record_type] record and points to [$destination]"
 }
 
-# Check for the required number of arguments
-if [ $# -lt 1 ]; then
-    echo "Usage: $0 <domain> [subdomain]"
-    exit 1
+if [ -z "$2" ]; then
+    for sub_domain in "www" "lb-01" "web-01" "web-02"; do
+        display_info "$sub_domain.$1"
+    done
+else
+    display_info "$2.$1"
 fi
-
-# Get domain and subdomain from arguments
-domain="$1"
-subdomain="$2"
-
-# Call the function to get subdomain information
-domain_info "$domain" "$subdomain"
-
