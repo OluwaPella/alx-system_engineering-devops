@@ -32,9 +32,8 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend pelu-frontend-https
+frontend pelu-frontend
         bind *:443 ssl crt /etc/haproxy/certs/www.pe-lumi.tech.pem
-        http-request set-header X-Forwarded-Proto https
         default_backend pelu-backend
 
 backend pelu-backend
