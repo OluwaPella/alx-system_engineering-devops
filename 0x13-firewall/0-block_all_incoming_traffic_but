@@ -1,5 +1,5 @@
-sudo apt -y update
-sudo apt -y install ufw
+sudo apt-get -y update
+sudo apt-get -y install ufw
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
