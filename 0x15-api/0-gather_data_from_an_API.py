@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/python3
 # This use REST API   
 # its display on the standard output the employee todo list progress
 import requests
