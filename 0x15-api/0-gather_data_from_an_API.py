@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # This use REST API   
 # its display on the standard output the employee todo list progress
+""" this module uses http request """
 import requests
 
 def get_employee_todo_progress(employee_id):
