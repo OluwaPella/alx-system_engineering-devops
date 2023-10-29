@@ -11,7 +11,7 @@ def get_employee_todo_progress(employee_id):
     compelet_task = [todo for todo in todos if todo['completed']]
     num_compelet_task = len(compelet_task)
     total_task = len(todos)
-    employee_name = todos[0]['username']
+    employee_name = todos[0].get['username']
     print(f"Employee {employee_name} is done with tasks({num_compelet_task}/{total_task}):")
 
     for task in compelet_task:
