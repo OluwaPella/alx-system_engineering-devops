@@ -19,4 +19,6 @@ def get_employee_todo_progress(employee_id):
     else:
         print(f"Error:failed to retrieve TODO list for {employee_id}.")
 
-        if __name__ == "__main__":)
+    if  __name__ == "__main__":
+        employee_id = 1  # Set the employee ID
+        get_employee_todo_progress(employee_id)
