@@ -3,6 +3,7 @@
 # its display on the standard output the employee todo list progress
 """ this module uses http request """
 import requests
+import sys
 
 def get_employee_todo_progress(employee_id):
     # sending a GET request to the api endpoint 
@@ -19,5 +20,14 @@ def get_employee_todo_progress(employee_id):
         print(f"\t{task['title']}")
 
 if  __name__ == "__main__":
-    employee_id = 1  # Set the employee ID
+	if len(sys.argv) != 2:
+        print("Usage: python script.py employee_id")
+        sys.exit(1)
+
+    try:
+        employee_id = int(sys.argv[1])
+    except ValueError:
+        print("Employee ID should be an integer.")
+        sys.exit(1)
+
     get_employee_todo_progress(employee_id)
