@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 # This use REST API   
 # its display on the standard output the employee todo list progress
-""" this module uses http request """
+
+# this module uses http request
 import requests
-""" this module uses  system arg """
-import sys
 
 def get_employee_todo_progress(employee_id):
     #validating the employee_id 
@@ -24,5 +23,5 @@ def get_employee_todo_progress(employee_id):
         print(f"\t{task['title']}")
 
 if  __name__ == "__main__":
-    employee_id = [1]
+    employee_id = 1
     get_employee_todo_progress(employee_id)
