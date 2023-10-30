@@ -4,6 +4,7 @@
 """this module uses http request"""
 import requests
 
+if  __name__ == "__main__":
 def get_employee_todo_progress(employee_id):
     #validating the employee_id 
     if not isinstance(employee_id, int) or employee_id <= 0:
@@ -20,7 +21,3 @@ def get_employee_todo_progress(employee_id):
 
     for task in compelet_task:
         print(f"\t{task['title']}")
-
-if  __name__ == "__main__":
-    employee_id = 1
-    get_employee_todo_progress(employee_id)
