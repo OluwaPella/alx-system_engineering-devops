@@ -10,8 +10,8 @@ def get_employee_todo_progress(employee_id):
     if response.status_code == 200:
         todos = response.json()
     compelet_task = [todo for todo in todos if todo['completed']]
-    NUMBER_OF_DONE = len(compelet_task)
-    TOTAL_NUMBER_OF_TASKS = len(todos)
+    NUMBER_OF_DONE = completed.count(True)
+    TOTAL_NUMBER_OF_TASKS = todos.count(True)
     EMPLOYEE_NAME = todos[0]['userid']
     print(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE}/{TOTAL_NUMBER_OF_TASKS}):")
 
