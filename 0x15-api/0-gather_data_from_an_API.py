@@ -10,13 +10,13 @@ def get_employee_todo_progress(employee_id):
     if response.status_code == 200:
         todos = response.json()
     compelet_task = [todo for todo in todos if todo['completed']]
-    num_compelet_task = len(compelet_task)
-    total_task = len(todos)
-    employee_name = todos[0].get['username']
-    print(f"Employee {employee_name} is done with tasks({num_compelet_task}/{total_task}):")
+    NUMBER_OF_DONE = len(compelet_task)
+    TOTAL_NUMBER_OF_TASKS = len(todos)
+    EMPLOYEE_NAME = todos[0].get['username']
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE}/{TOTAL_NUMBER_OF_TASKS}):")
 
     for task in compelet_task:
-        print(f"\t{task['title']}")
+        print(f"\t{task[' TASK_TITLE']}")
     else:
         print(f"Error:failed to retrieve TODO list for {employee_id}.")
 
