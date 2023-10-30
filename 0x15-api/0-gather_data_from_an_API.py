@@ -7,6 +7,9 @@ import requests
 import sys
 
 def get_employee_todo_progress(employee_id):
+    #validating the employee_id 
+    if not isinstance(employee_id, int) or employee_id <= 0:
+        raise ValueError("Employee ID should be a positive integer.")
     # sending a GET request to the api endpoint 
     response = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}")
     if response.status_code == 200:
