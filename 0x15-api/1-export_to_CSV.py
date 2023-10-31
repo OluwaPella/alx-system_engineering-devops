@@ -14,9 +14,7 @@ if __name__ == "__main__":
     # Filter completed todos
     completed = [todo for todo in todos if todo.get("completed")]
     # Specify the CSV file name based on user ID
-    csv_file = '{}.csv'.format(user_id)
-    # Open CSV file for writing
-    with open(csv_file, 'w', newline='') as file:
+    with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
         for t in todos:
