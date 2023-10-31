@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# this script print todo list in ssv format
+"""  exporting todo list information  data in  CSV format"""
 import request
 import csv
 import sys
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     compeleted = (todo for todo in todos if todo.get("compeleted") is True)
     csv_file = '{}.csv'.format(user_id)
     with open(csv_file, 'w' newline='') as csv_file:
-        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for todo in todos:
             writer.writerow([
                 user_Id,
