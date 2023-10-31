@@ -15,10 +15,10 @@ if __name__ == "__main__":
     with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
-        for t in todos:
+        for todo in todos:
             writer.writerow([
                 user_id,
                 user.get("username"),
-                t.get("completed"),
-                t.get("title")
+                todo.get("completed"),
+                todo.get("title")
                 ])
