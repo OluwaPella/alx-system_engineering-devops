@@ -16,5 +16,5 @@ if __name__ == "__main__":
         for todo in todos:
             json.dump({user_id, [{"task": todo.get("title"), 
                 "completed": todo.get("completed"), 
-                "username": todo.get("username")}
+                "username": todo.get("username")}]
                 })
