@@ -23,16 +23,12 @@ if __name__ == "__main__":
     # Open CSV file for writing
     with open(csv_file, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        
-        # Write the CSV header row
-        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-        
         # Write data for each todo
         for todo in todos:
             writer.writerow([
                 user_id,
-                user['username'],  # Extract the 'username' attribute from user data
-                "Completed" if todo["completed"] else "Not Completed",
-                todo["title"]
+                user.get("username"),  # Extract the 'username' attribute from user data
+                todo.get("completed"),
+                todo.get("title")
             ])
  
