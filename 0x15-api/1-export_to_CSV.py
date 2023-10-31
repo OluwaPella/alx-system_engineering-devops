@@ -15,9 +15,9 @@ if __name__ == "__main__":
     with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
-             [writer.writerow(
-                [user_id,
+             writer.writerow([
+                user_id,
                 user.get("username"),
                 todo.get("completed"),
                 todo.get("title")
-            ]) for todo in todos]
+                ]) for todo in todos:
