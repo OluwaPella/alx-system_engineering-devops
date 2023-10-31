@@ -16,7 +16,7 @@ if __name__ == "__main__":
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
         for todo in todos:
-             writer.writerow([
+            writer.writerow([
                 user_id,
                 user.get("username"),
                 todo.get("completed"),
