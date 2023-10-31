@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # Open CSV file for writing
     with open(csv_file, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        # Write data for each tod
+        # Write data for each todo
 		[writer.writerow(
-            [u_id, username, todo.get("completed"), todo.get("title")]
+            [user_id, username, todo.get("completed"), todo.get("title")]
         ) for todo in todos]
