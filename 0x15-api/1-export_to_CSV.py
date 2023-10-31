@@ -21,6 +21,6 @@ if __name__ == "__main__":
             writer.writerow([
                 user_id,
                 user.get["username"],
-                "Completed" if t.get["completed"] else "Not Completed",
-                t.get["title"]
+                "Completed" if todo.get["completed"] else "Not Completed",
+                todo.get["title"]
             ])
