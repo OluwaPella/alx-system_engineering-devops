@@ -10,15 +10,15 @@ if __name__ == "__main__":
     # Fetch user data
     user = requests.get(url + 'users/{}'.format(user_id)).json()
     # Fetch todos for the user
-    todos = requests.get(url + 'todos', params={"userId": user_id}).json()
+    todos = requests.get(url + "todos", params={"userId": user_id}).json()
     # Specify the CSV file name based on user ID
     with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
-        for todo in todos:
+        for t in todos:
             writer.writerow([
                 user_id,
                 user.get("username"),
-                todo.get("completed"),
-                todo.get("title")
+                t.get("completed"),
+                t.get("title")
                 ])
