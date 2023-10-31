@@ -19,7 +19,7 @@ if __name__ == "__main__":
         # Write the CSV header row
         for todo in todos:
             writer.writerow([
-                [user_id,
+                user_id,
                 user.get["username"],
                 "Completed" if t.get["completed"] else "Not Completed",
                 t.get["title"]
