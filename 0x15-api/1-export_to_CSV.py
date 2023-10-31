@@ -12,8 +12,11 @@ if __name__ == "__main__":
     compeleted = (todo for todo in todos if todo.get("compeleted") is True)
     csv_file = '{}.csv'.format(user_id)
     with open(csv_file, 'w' newline='') as csv_file:
-        fieldnames = ["id", "title", "completed"]
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        writer.writeheader()
- for todo in completed:
-            writer.writerow({"id": todo["id"], "title": todo["title"], "completed": todo["completed"]})
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        for todo in todos:
+            writer.writerow([
+                user_Id,
+                user['username'],
+                "compeleted" if todo["compeleted"] else "not completed",
+                todo["title"]
+                ])
