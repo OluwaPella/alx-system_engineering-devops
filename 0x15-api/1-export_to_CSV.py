@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Exporting todo list information data in CSV format"""
-import requests
 import csv
+import requests
 import sys
 
 if __name__ == "__main__":
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         for todo in todos:
             writer.writerow([
                 user_id,
-                user.get("username"),  # Extract the 'username' attribute from user data
+                username,
                 todo.get("completed"),
                 todo.get("title")
             ])
