@@ -11,8 +11,6 @@ if __name__ == "__main__":
     user = requests.get(url + 'users/{}'.format(user_id)).json()
     # Fetch todos for the user
     todos = requests.get(url + 'todos', params={"userId": user_id}).json()
-    # Filter completed todos
-    completed = [todo for todo in todos if todo.get("completed")]
     # Specify the CSV file name based on user ID
     with open("{}.csv".format(user_id), 'w', newline='') as csvfile:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
