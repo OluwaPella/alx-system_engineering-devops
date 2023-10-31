@@ -19,10 +19,10 @@ if __name__ == "__main__":
     with open(csv_file, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         # Write the CSV header row
-        for todo in todos:
+        for t in todos:
             writer.writerow([
                 user_id,
                 user.get["username"],
-                "Completed" if todo.get["completed"] else "Not Completed",
-                todo.get["title"]
+                "Completed" if t.get["completed"] else "Not Completed",
+                t.get["title"]
             ])
