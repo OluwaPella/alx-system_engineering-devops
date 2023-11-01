@@ -5,9 +5,8 @@ import requests
 
 if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
-    # Fetch user data
     user = requests.get(url + 'users').json()
-    # Specify the CSV file name based on user ID
+
     with open("todo_all_employees.json", 'w') as jsonfile:
         json.dump({
             user.get("id"): [{
@@ -15,5 +14,5 @@ if __name__ == "__main__":
                 "completed": todo.get("completed"),
                 "username": user.get("username")
             } for todo in requests.get(url + "todos",
-                params={"userId": user.get("id")}).json()]
+                                params={"userId": user.get("id")}).json()]
             for user in users}, jsonfile)
