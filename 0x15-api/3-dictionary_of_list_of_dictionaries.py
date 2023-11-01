@@ -13,6 +13,5 @@ if __name__ == "__main__":
                 "task": todo.get("title"),
                 "completed": todo.get("completed"),
                 "username": u.get("username")
-            } for todo in requests.get(url + "todos",
-                                params={"userId": u.get("id")}).json()]
+            } for todo in requests.get(url + "todos", params={"userId": u.get("id")}).json()]
             for u in users}, jsonfile)
