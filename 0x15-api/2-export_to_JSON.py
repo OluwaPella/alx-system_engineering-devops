@@ -13,7 +13,8 @@ if __name__ == "__main__":
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
     # Specify the CSV file name based on user ID
     with open("{}.json".format(user_id), 'w') as jsonfile:
+        for todo in todos:
             json.dump({user_id: [{
                 "task": todo.get("title"),
                 "completed": todo.get("completed"),
-                "username": user.get("username")} for todo in todos]}, jsonfile)
+                "username": user.get("username")}]}, jsonfile)
